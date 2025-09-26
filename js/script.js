@@ -226,7 +226,7 @@ function mostrarFinalMundial(eventData) {
 function obtenerPeliculasPopulares() {
     // IMPORTANTE: Debes obtener tu propia API Key de TMDb.
     // Esta es una clave de ejemplo y podría no funcionar.
-    const apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzMyMTQ3YjQxOGY2MDhiMGI5ZDEwZDAzODVjY2ZlMiIsInN1YiI6IjY2MjgwNWE4NjJmMzM1MDE2MzU4OWE1MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.b4ege4sYyvfR59wnr-Xd2n2H1Nfr8FprKor2Lg6e2Cg';
+    const apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MTNjMWRlZjNjOThjNWQ2OGZkNGYzNmEyMjQyNTY5OCIsIm5iZiI6MTc1ODkwOTAwMC4xNDcsInN1YiI6IjY4ZDZkMjQ4NWFmYjU3ZjJjZTUyZjljNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-1KVaB8ccRBZmVOU2SXFaB_Q-8xxqusiBzt7iSc8V7U';
 
     const url = 'https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1';
     
