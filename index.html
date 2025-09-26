@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>TP1 - Análisis de APIs Públicas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="container">
+        <h1 class="display-2 text-center my-4">Trabajo Práctico N°1: APIs Públicas</h1>
+    </header>
+
+    <main class="container mt-5">
+
+        <section>
+            <h2 class="text-center mb-4 display-4">API OpenWeatherMap</h2>
+            <section>
+            <h2 class="text-center mb-4">Demostración Práctica en Vivo</h2>
+            <div id="clima-actual-container" class="mb-5">
+                 <p class="text-center text-muted">Solicitando permiso de ubicación para mostrar el clima...</p>
+            </div>
+            <h3 class="mb-4 text-center">Pronóstico para las próximas horas</h3>
+            <div id="info-clima" class="row">
+                </div>
+        </section>
+
+        <hr class="my-5">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Funcionalidad</h5>
+                            <p class="card-text">Ofrece datos meteorológicos actuales, pronósticos por hora y día, humedad, viento, etc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Autenticación</h5>
+                            <p class="card-text">Requiere una API key gratuita que se obtiene al registrarse. Se envía como un parámetro en la URL, lo cual es un método simple.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Documentación</h5>
+                            <p class="card-text">La documentación oficial es completa y se encuentra en su página web, con ejemplos claros para cada endpoint.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Formato de Datos</h5>
+                            <p class="card-text">Los datos se devuelven en formato JSON, que es ligero y fácil de procesar con JavaScript.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section>
+            <h2 class="text-center mb-4">Ejercicios Propuestos por Nivel de Complejidad</h2>
+            <div class="accordion" id="accordionEjercicios">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBasico">
+                            Nivel Básico: App del Clima Simple
+                        </button>
+                    </h2>
+                    <div id="collapseBasico" class="accordion-collapse collapse show" data-bs-parent="#accordionEjercicios">
+                        <div class="accordion-body">
+                            <strong>Objetivo:</strong> Crear una aplicación que muestre la temperatura y el estado del clima actual de una ciudad. <br>
+                            <strong>Habilidades a practicar:</strong> Realizar una solicitud HTTP GET con un parámetro de consulta, entender la estructura JSON de la respuesta y extraer datos específicos como la temperatura (`main.temp`) y la descripción del clima (`weather[0].description`).
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIntermedio">
+                            Nivel Intermedio: Pronóstico Extendido
+                        </button>
+                    </h2>
+                    <div id="collapseIntermedio" class="accordion-collapse collapse" data-bs-parent="#accordionEjercicios">
+                        <div class="accordion-body">
+                            <strong>Objetivo:</strong> Desarrollar una aplicación que muestre el pronóstico del clima para los próximos 5 días, incluyendo la temperatura máxima y mínima para cada día. <br>
+                            <strong>Habilidades a practicar:</strong> Manejar un conjunto de datos más grande, iterar sobre un array (`list`) en la respuesta JSON para extraer múltiples puntos de datos y agrupar la información para un resumen diario.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAvanzado">
+                            Nivel Avanzado: App de Alertas Personalizadas
+                        </button>
+                    </h2>
+                    <div id="collapseAvanzado" class="accordion-collapse collapse" data-bs-parent="#accordionEjercicios">
+                        <div class="accordion-body">
+                            <strong>Objetivo:</strong> Construir una aplicación que envíe alertas personalizadas basadas en el clima (ej. "¡Llevar paraguas! Va a llover en 2 horas"). <br>
+                            <strong>Habilidades a practicar:</strong> Combinar datos de pronóstico con lógica de programación para generar notificaciones.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section>
+            
+            <h2 class="text-center mb-4 display-4">API The Sports DB</h2>
+            
+            <h2 class="text-center mb-4">Demostración Práctica en Vivo</h2>
+            <div id="wc-final-container" class="row justify-content-center">
+                <p class="text-center text-muted">Buscando el partido más importante de la historia...</p>
+                </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Funcionalidad</h5>
+                            <p class="card-text">Ofrece datos sobre equipos, jugadores, eventos, ligas y resultados de partidos.Permite buscar por deporte, liga o equipo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Autenticación</h5>
+                            <p class="card-text">Su versión gratuita no requiere clave para la mayoría de funciones, lo que la hace ideal para principiantes. La documentación menciona una clave gratuita ('123') que se puede usar en la URL. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Documentación</h5>
+                            <p class="card-text">La documentación oficial está disponible online y detalla todos los endpoints disponibles para consultar la información deportiva. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Formato de Datos</h5>
+                            <p class="card-text">Los datos se entregan en formato JSON, estándar para el intercambio de información en APIs modernas. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="my-5">
+        <h3 class="mt-4 mb-3">Ejercicios Propuestos</h3>
+        <div class="accordion" id="accordionSportsDB">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSportsBasico">
+                        Nivel Básico: Buscador de Equipos 
+                    </button>
+                </h2>
+                <div id="collapseSportsBasico" class="accordion-collapse collapse show" data-bs-parent="#accordionSportsDB">
+                    <div class="accordion-body">
+                        <strong>Objetivo del Proyecto:</strong> Construir una herramienta donde un usuario pueda buscar un equipo deportivo por nombre y ver detalles como su liga, estadio y logo.  <br>
+                        <strong>Habilidades a Practicar:</strong> Manejar query parameters en la URL de la solicitud para la búsqueda, procesar el JSON y mostrar la información relevante del equipo.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSportsIntermedio">
+                        Nivel Intermedio: Estadísticas de Jugador 
+                    </button>
+                </h2>
+                <div id="collapseSportsIntermedio" class="accordion-collapse collapse" data-bs-parent="#accordionSportsDB">
+                    <div class="accordion-body">
+                        <strong>Objetivo del Proyecto:</strong> Crear una página que muestre las estadísticas de un jugador específico de un equipo (ej. posición, fecha de nacimiento, etc.). <br>
+                        <strong>Habilidades a Practicar:</strong> Trabajar con endpoints dinámicos que requieren un ID de jugador, realizar múltiples llamadas a la API (primero para el equipo, luego para los jugadores de ese equipo) y filtrar datos dentro de la respuesta JSON. 
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAvanzadoSports">
+                        Nivel Avanzado: Calendario Interactivo 
+                    </button>
+                </h2>
+                <div id="collapseAvanzadoSports" class="accordion-collapse collapse" data-bs-parent="#accordionSportsDB">
+                    <div class="accordion-body">
+                        <strong>Objetivo del Proyecto:</strong> Desarrollar un calendario interactivo que muestre los partidos de una liga con sus resultados o fechas futuras.  <br>
+                        <strong>Habilidades a Practicar:</strong> Realizar múltiples solicitudes a la API, combinar la información de diferentes endpoints (equipos, resultados, eventos) y manejar la presentación de datos en un formato de calendario. 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-5">
+
+        <section>
+            <h2 class="text-center mb-4">API The Movie Database (TMDb)</h2>
+            <div class="text-center mt-5">
+            <h3>Demostración Práctica: Películas Populares del Momento</h3>
+        </div>
+        <div id="tmdb-container" class="row mt-4">
+            <p class="text-center text-muted">Cargando películas populares...</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Funcionalidad</h5>
+                            <p class="card-text">Es una base de datos masiva de películas y series. Permite buscar información detallada sobre títulos, actores, directores, géneros, calificaciones, tráileres y pósteres. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Autenticación</h5>
+                            <p class="card-text">Requiere un "token de portador" (Bearer Token) que se obtiene al crear una cuenta. Este token se incluye en el encabezado de la solicitud HTTP, un método muy común en la industria. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Documentación</h5>
+                            <p class="card-text">La documentación de la API de TMDb es muy completa y está disponible en su sitio web, detallando todos los endpoints y parámetros necesarios. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Formato de Datos</h5>
+                            <p class="card-text">Todos los datos de la API se entregan en formato JSON, lo que facilita su integración con cualquier lenguaje de programación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="my-5">
+        <h3 class="mt-4 mb-3">Ejercicios Propuestos</h3>
+        <div class="accordion" id="accordionTMDb">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTMDbBasico">
+                        Nivel Básico: Búsqueda de Películas
+                    </button>
+                </h2>
+                <div id="collapseTMDbBasico" class="accordion-collapse collapse show" data-bs-parent="#accordionTMDb">
+                    <div class="accordion-body">
+                        <strong>Objetivo del Proyecto:</strong> Desarrollar una aplicación que permita buscar películas por título y muestre el póster, el título y una sinopsis.  <br>
+                        <strong>Habilidades a Practicar:</strong> Realizar la solicitud HTTP GET con un token de portador (Bearer Token), entender el manejo de imágenes a través de la API y mostrar la información básica de la película. 
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTMDbIntermedio">
+                        Nivel Intermedio: Catálogo de Películas Populares
+                    </button>
+                </h2>
+                <div id="collapseTMDbIntermedio" class="accordion-collapse collapse" data-bs-parent="#accordionTMDb">
+                    <div class="accordion-body">
+                        <strong>Objetivo del Proyecto:</strong> Construir un catálogo que muestre las películas más populares del momento, con detalles como el reparto, la calificación y el tráiler. <br>
+                        <strong>Habilidades a Practicar:</strong> Manejar peticiones paginadas para obtener más resultados, realizar una segunda solicitud a un endpoint diferente para obtener detalles específicos de una película y mejorar la presentación de datos complejos. 
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTMDbAvanzado">
+                        Nivel Avanzado: Explorador con Filtros
+                    </button>
+                </h2>
+                <div id="collapseTMDbAvanzado" class="accordion-collapse collapse" data-bs-parent="#accordionTMDb">
+                    <div class="accordion-body">
+                        <strong>Objetivo del Proyecto:</strong> Construir una aplicación que permita al usuario explorar películas con filtros avanzados por género, año de estreno o calificación.  <br>
+                        <strong>Habilidades a Practicar:</strong> Consumir la API con múltiples query parameters para filtrar los datos, construir la URL de forma dinámica y renderizar la interfaz de usuario con datos que cambian según los filtros. 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="my-5">
+        <section>
+            <h2 class="text-center mb-4">Mejores Prácticas al Trabajar con APIs</h2>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h4>Límites de Solicitudes</h4>
+                    <p>Las APIs gratuitas suelen tener límites de solicitudes por día. Es crucial leer la documentación para evitar superar estos límites y recibir un error 429 (Too Many Requests).</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h4>Manejo de Errores</h4>
+                    <p>El código debe estar preparado para fallos, como una clave de API incorrecta (error 401) o que el servidor de la API no funcione (errores 5xx), mostrando siempre un mensaje claro al usuario.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h4>Seguridad de la API Key</h4>
+                    <p>La clave de la API nunca debe exponerse en el código del frontend en un proyecto de producción. La práctica correcta es almacenarla de forma segura en un servidor (backend).</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center text-muted py-4">
+        <p>Trabajo Práctico N°1 - Programación IV - ITSE</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
