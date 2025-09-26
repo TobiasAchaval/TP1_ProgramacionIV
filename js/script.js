@@ -25,11 +25,10 @@ function obtenerClimaConUbicacion(posicion) {
 
     const apiKey = 'a6081d17423df5ef39f2c3fe230f1ea0'; // a6081d17423df5ef39f2c3fe230f1ea0
     
-    // 2. Modificamos las URLs para usar latitud y longitud en lugar de 'q' (ciudad)
     const urlClimaActual = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=es`;
     const urlPronostico = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=es`;
 
-    // 3. El resto del código (Promise.all y fetch) va DENTRO de esta función
+
     Promise.all([
         fetch(urlClimaActual),
         fetch(urlPronostico)
@@ -70,11 +69,6 @@ function manejarErrorDeUbicacion(error) {
     console.error("Error de Geolocalización:", mensajeError);
     container.innerHTML = `<p class="text-danger text-center">${mensajeError}</p>`;
 }
-
-
-// Las funciones para mostrar los datos (mostrarClimaActual y mostrarPronostico)
-// se mantienen exactamente iguales a como las tenías antes.
-// ... (pega aquí tus funciones mostrarClimaActual y mostrarPronostico) ...
 
 function mostrarClimaActual(datosClimaActual, datosPronostico) {
     const container = document.getElementById('clima-actual-container');
@@ -133,11 +127,6 @@ function mostrarPronostico(datosPronostico) {
         container.innerHTML += tarjetaPronosticoHtml;
     });
 }
-// js/script.js
-
-
-
-// --- NUEVO CÓDIGO PARA LA FINAL DEL MUNDIAL 2022 ---
 
 /**
  * Función para obtener los datos de la final del Mundial 2022.
@@ -183,8 +172,8 @@ function mostrarFinalMundial(eventData) {
     const awayScore = eventData.intAwayScore;
     const eventName = eventData.strEvent;
     const date = eventData.dateEvent;
-    const finalResult = eventData.strResult; // Este campo es muy largo, lo usaremos si queremos
-    const description = eventData.strDescriptionEN; // ¡Una descripción perfecta del partido!
+    const finalResult = eventData.strResult; // 
+    const description = eventData.strDescriptionEN; // 
     const venue = eventData.strVenue; // Estadio
     const thumbnail = eventData.strThumb; // Imagen del evento
     const videoLink = eventData.strVideo; // Enlace a los highlights
@@ -224,8 +213,7 @@ function mostrarFinalMundial(eventData) {
     container.innerHTML = cardHtml;
 }
 function obtenerPeliculasPopulares() {
-    // IMPORTANTE: Debes obtener tu propia API Key de TMDb.
-    // Esta es una clave de ejemplo y podría no funcionar.
+    // apikey.
     const apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MTNjMWRlZjNjOThjNWQ2OGZkNGYzNmEyMjQyNTY5OCIsIm5iZiI6MTc1ODkwOTAwMC4xNDcsInN1YiI6IjY4ZDZkMjQ4NWFmYjU3ZjJjZTUyZjljNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-1KVaB8ccRBZmVOU2SXFaB_Q-8xxqusiBzt7iSc8V7U';
 
     const url = 'https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1';
